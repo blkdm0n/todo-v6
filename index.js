@@ -33,30 +33,27 @@ var todoList = {
     }
     this.displayTodos();
   },
-
   toggleAll: function () {
-    //toggleAll if everything is true, make everything false
     var totalTodos = this.todos.length;
     var completedTodos = 0;
 
-    //Get number of completed todos.
     for (let i = 0; i < totalTodos; i++) {
       if (this.todos[i].completed === true) {
         completedTodos++;
-        console.log(completedTodos);
       }
     }
-
     if (completedTodos === totalTodos) {
       for (let i = 0; i < totalTodos; i++) {
         this.todos[i].completed = false;
+      }
+    } else {
+      for (let i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true;
       }
     }
     this.displayTodos();
 
   },
-  //otherwise make everything true
-
   deleteTodo: function (deletedTodo) {
     for (let i = 0; i < this.todos.length; i++) {
       if (this.todos[i].todoText === deletedTodo) {

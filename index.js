@@ -6,7 +6,11 @@ var todoList = {
       console.log(`Your todo list is empty!`);
     } else {
         for (let i = 0; i < this.todos.length; i++) {
-        console.log(`${this.todos[i].todoText}, ${this.todos[i].completed}`);
+          if (this.todos[i].completed === true) {
+            console.log(`(X) ${this.todos[i].todoText}`);
+          } else {
+            console.log(`() ${this.todos[i].todoText}`)
+          }
       }
     }
   },
@@ -37,6 +41,7 @@ var todoList = {
     var totalTodos = this.todos.length;
     var completedTodos = 0;
 
+    //Get number of completed todos.
     for (let i = 0; i < totalTodos; i++) {
       if (this.todos[i].completed === true) {
         completedTodos++;
